@@ -138,6 +138,6 @@ COPY renv.lock renv.lock
 RUN R -e "renv::restore()"
 RUN R -e "renv::isolate()"
 
-COPY entrypoint.sh /entrypoint.sh
+COPY docker/entrypoint_website.sh /entrypoint_website.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint_website.sh"]
