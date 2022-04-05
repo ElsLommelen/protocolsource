@@ -5,3 +5,4 @@ check_all <- function(protocol_code) {
   #sapply(protocolcode, protocolhelper::check_structure)
   return(invisible(protocol_code))
 }
+check_all(Sys.getenv("PROTOCOL_CODE"))
