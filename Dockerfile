@@ -139,5 +139,6 @@ RUN R -e "renv::restore()"
 RUN R -e "renv::isolate()"
 
 COPY docker/entrypoint_website.sh /entrypoint_website.sh
+COPY docker/entrypoint_check.sh /entrypoint_check.sh
 
 ENTRYPOINT ["/entrypoint_website.sh"]
