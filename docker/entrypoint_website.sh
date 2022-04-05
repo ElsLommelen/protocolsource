@@ -7,7 +7,7 @@ git checkout $BRANCH_SOURCE
 
 echo 'Rendering the Rmarkdown files...\n'
 rm .Rprofile
-Rscript "render.R"
+Rscript "docker/render.R"
 if [ $? -ne 0 ]; then
   echo '\nRendering failed. Please check the error message above.\n';
   exit 1
