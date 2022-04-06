@@ -8,6 +8,7 @@ ls -a
 rm .Rprofile
 
 echo '\nChecking protocols specific tests...\n'
+rm .Rprofile
 Rscript "docker/check_all.R"
 if [ $? -ne 0 ]; then
   echo '\nThe source code failed some checks. Please check the error message above.\n';
