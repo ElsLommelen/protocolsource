@@ -4,7 +4,7 @@ subtitle:
 author:
   - name: Els De Bie
     orcid: 0000-0001-7679-743X
-date: "`r Sys.Date()`"
+date: "2022-07-18"
 reviewers: [Hans Van Calster,Lieve Vriens,Jan Wouters,Wouter Van Gompel,Els Lommelen]
 file_manager: Hans Van Calster
 protocol_code: sfp-401-nl
