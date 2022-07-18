@@ -26,7 +26,7 @@ ls -a
 git config user.name
 git config user.email
 git add --all
-git commit --message="Nieuwe protocollen toegevoegd"
+git commit --message="Add new protocol"
 git push -f https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY_DEST
 
 echo '\nNew version published...'
