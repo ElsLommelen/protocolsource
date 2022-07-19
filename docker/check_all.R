@@ -4,13 +4,17 @@ check_all <- function(protocol_code) {
   fail <- FALSE
   tryCatch(
     protocolhelper::check_frontmatter(protocol_code),
-    error = function(e) paste0(e, "\n\n"),
-    fail = TRUE
+    error = function(e) {
+      e
+      fail = TRUE
+    }
   )
   tryCatch(
     protocolhelper::check_structure(protocol_code),
-    error = function(e) e,
-    fail = TRUE
+    error = function(e) {
+      paste0("\n\n", e)
+      fail = TRUE
+    }
   )
   if (fail) {
     stop("\nThe source code failed some checks. Please check the error message above.\n")
