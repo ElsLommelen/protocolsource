@@ -1,10 +1,9 @@
 # bundled checks for protocols
-library(protocolhelper)
 protocol_code <- Sys.getenv("PROTOCOL_CODE")
 fail <- FALSE
 tryCatch(
   protocolhelper::check_frontmatter(protocol_code),
-  error = function(e) e,
+  error = function(e) paste0(e, "\n\n"),
   fail = TRUE
 )
 tryCatch(
