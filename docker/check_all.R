@@ -1,10 +1,8 @@
 # bundled checks for protocols
 library(protocolhelper)
 check_all <- function(protocol_code) {
-  if (interactive()) {
-    checklist::clean_git()
-  }
   #sapply(protocol_code, protocolhelper::check_frontmatter)
+  sapply(protocol_code, protocolhelper::check_structure)
   sapply(protocol_code, protocolhelper::check_structure)
   #return(invisible(protocol_code))
 }
