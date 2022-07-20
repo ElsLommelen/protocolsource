@@ -4,7 +4,6 @@ echo '\nGetting the code...\n'
 git clone --quiet https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY check
 cd check
 git checkout $BRANCH_SOURCE
-ls -a
 rm .Rprofile
 
 #echo '\nChecking if branch is up to date with main...\n'
