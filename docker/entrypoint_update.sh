@@ -1,24 +1,34 @@
 #!/bin/sh -l
 
 echo '\nGetting the code...\n'
-git clone --quiet https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY check
-cd check
-git checkout $BRANCH_SOURCE
+git clone --branch=$BRANCH_SOURCE https://$INPUT_TOKEN_INBO@github.com/$GITHUB_REPOSITORY /update
+git config --global user.email "info@inbo.be"
+git config --global user.name "INBO"
+cd /update
+#git checkout $BRANCH_SOURCE
 ls -a
 rm .Rprofile
 
 echo '\nUpdating zenodo...\n'
-Rscript "protocolhelper:::update_zenodo()"
-git config user.name
-git config user.email
+Rscript --no-save --no-restore -e 'protocolhelper:::update_zenodo()'
 git add --all
 git commit --message="update .zenodo.json"
-git push -f https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY
 
 echo '\nUpdating general NEWS.md...\n'
-Rscript -e 'protocolhelper:::update_news_release("'$PROTOCOL_CODE'")'
-git config user.name
-git config user.email
+Rscript --no-save --no-restore -e 'protocolhelper:::update_news_release("'$PROTOCOL_CODE'")'
+#git config user.name
+#git config user.email
 git add --all
 git commit --message="update general NEWS.md"
-git push -f https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY
+
+echo 'git config --list:'
+git config --list
+
+echo 'git branch'
+git branch
+
+echo 'git remote -v show origin'
+git remote -v show origin
+
+echo 'git push'
+git push -f
