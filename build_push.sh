@@ -14,8 +14,12 @@ docker run --rm --env GITHUB_REPOSITORY="inbo/checklist" --env GITHUB_SHA=$(git 
 
 docker build --tag=inbo/protocols .
 
+#entrypoint_check
+docker run --rm --env GITHUB_REPOSITORY="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env PROTOCOL_CODE="sfp-401-nl" --env INPUT_TOKEN=$GITHUB_PAT inbo/protocols
+
+#entrypoint_update
+docker run --rm --env GITHUB_REPOSITORY="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env PROTOCOL_CODE="sfp-401-nl" --env INPUT_TOKEN=$GITHUB_PAT inbo/protocols
+
 #entrypoint_website
 docker run --rm --env GITHUB_REPOSITORY_SOURCE="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env GITHUB_REPOSITORY_DEST="ElsLommelen/protocols" --env INPUT_TOKEN=$GITHUB_PAT inbo/protocols
 
-#entrypoint_check
-docker run --rm --env GITHUB_REPOSITORY="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env PROTOCOL_CODE="sfp-401-nl" --env INPUT_TOKEN=$GITHUB_PAT inbo/protocols

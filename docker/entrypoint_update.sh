@@ -16,7 +16,7 @@ git commit --message="update .zenodo.json"
 git push -f https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY
 
 echo '\nUpdating general NEWS.md...\n'
-Rscript "protocolhelper:::update_news_release(Sys.getenv("PROTOCOL_CODE"))"
+Rscript -e 'protocolhelper:::update_news_release("'$PROTOCOL_CODE'")'
 git config user.name
 git config user.email
 git add --all

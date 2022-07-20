@@ -142,4 +142,4 @@ COPY docker/entrypoint_website.sh /entrypoint_website.sh
 COPY docker/entrypoint_update.sh /entrypoint_update.sh
 COPY docker/entrypoint_check.sh /entrypoint_check.sh
 
-ENTRYPOINT ["/entrypoint_check.sh"]
+ENTRYPOINT ["/entrypoint_update.sh"]
