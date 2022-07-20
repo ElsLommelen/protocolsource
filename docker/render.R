@@ -1,1 +1,1 @@
-protocolhelper::render_release()
+protocolhelper:::render_release()
