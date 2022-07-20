@@ -9,7 +9,7 @@ check_all <- function(protocol_code) {
   )
   tryCatch(
     protocolhelper::check_structure(protocol_code),
-    error = function(e) paste0("\n\n", e),
+    error = function(e) e,
     finally = fail <- TRUE
   )
   if (fail) {
