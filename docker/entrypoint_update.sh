@@ -6,6 +6,10 @@ git config --global user.email "info@inbo.be"
 git config --global user.name "INBO"
 cd /update
 
+echo '\nSession info\n'
+Rscript -e "renv::restore()"
+Rscript -e 'sessioninfo::session_info()'
+
 echo '\nUpdating zenodo...\n'
 Rscript --no-save --no-restore -e 'protocolhelper:::update_zenodo()'
 git add --all
