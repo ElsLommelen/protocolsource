@@ -84,9 +84,13 @@ RUN apt-get update \
 
 WORKDIR /github/workspace
 
-RUN R -e "install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN R -e "remotes::install_github('rstudio/renv@0.15.5')"
 RUN R -e "renv::consent(provided = TRUE)"
 COPY renv.lock renv.lock
+RUN mkdir -p renv
+COPY .Rprofile .Rprofile
+COPY renv/activate.R renv/activate.R
+COPY renv/settings.dcf renv/settings.dcf
 RUN R -e "renv::restore()"
 RUN R -e "renv::isolate()"
 
