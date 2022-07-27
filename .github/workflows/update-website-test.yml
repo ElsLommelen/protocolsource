@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
         uses: tonynguyenit18/github-action-custom-vars@v1
       - name: test
+        uses: tonynguyenit18/github-action-custom-vars@v1
         run: |
           echo 'GitHub actions:' $GITHUB_ACTIONS
           echo 'Event name:' $GITHUB_EVENT_NAME
