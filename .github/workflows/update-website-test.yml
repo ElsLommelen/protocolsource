@@ -1,5 +1,4 @@
-name: On merge to main, build the protocol and add it to the website
-"Log RECENT_MERGED_BRANCH_NAME"
+name: "Log RECENT_MERGED_BRANCH_NAME"
 
 on:
   push:
@@ -15,6 +14,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        uses: tonynguyenit18/github-action-custom-vars@v1
       - name: test
         uses: tonynguyenit18/github-action-custom-vars@v1
         run: |
@@ -24,3 +24,4 @@ jobs:
           echo 'branch:' $BRANCH_SOURCE
           echo 'event ref:' "${{ github.event.base_ref }}"
           echo 'event ref2:' $GITHUB_EVENT_BASE_REF
+          echo 'recent merged branch:' $RECENT_MERGED_BRANCH_NAME
