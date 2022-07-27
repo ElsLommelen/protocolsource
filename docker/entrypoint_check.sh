@@ -5,7 +5,11 @@ git clone --quiet https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY check
 cd check
 git checkout $BRANCH_SOURCE
 #ls -a
-rm .Rprofile
+#rm .Rprofile
+
+echo '\nSession info\n'
+Rscript -e "renv::restore()"
+Rscript -e 'sessioninfo::session_info()'
 
 #echo '\nChecking if branch is up to date with main...\n'
 #main_in_branch=$(git merge-base $BRANCH_SOURCE main)
