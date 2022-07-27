@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: test
         uses: tonynguyenit18/github-action-custom-vars@v1
+      - name: test
         run: |
           echo 'GitHub actions:' $GITHUB_ACTIONS
           echo 'Event name:' $GITHUB_EVENT_NAME
