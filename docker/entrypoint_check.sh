@@ -23,6 +23,16 @@ Rscript -e 'sessioninfo::session_info()'
 #  exit 1
 #fi
 
+echo '\nUpdate version number...\n'
+git config --global user.email "info@inbo.be"
+git config --global user.name "INBO"
+UPDATED=$(Rscript -e 'protocolhelper::update_version_number("'$PROTOCOL_CODE'")')
+echo 'output updated:' $UPDATED
+if [ "$UPDATED" = "[1] TRUE" ]; then
+  git push -f
+  echo '\ncommit with new version pushed\n'
+fi
+
 echo '\nChecking protocols specific tests...\n'
 #git checkout $BRANCH_SOURCE
 #rm .Rprofile
