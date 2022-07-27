@@ -10,12 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     name: "add protocol to website"
     env:
-      GITHUB_PAT: ${{ secrets.PAT }}
+      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.PAT }}
       - name: test
         run: |
           echo 'GitHub actions:' $GITHUB_ACTIONS
