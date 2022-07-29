@@ -22,5 +22,5 @@ docker run --rm --env GITHUB_REPOSITORY="ElsLommelen/protocolsource" --env BRANC
 docker run --rm --env GITHUB_REPOSITORY="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env PROTOCOL_CODE="sfp-401-nl" --env INPUT_TOKEN inbo/protocols
 
 #entrypoint_website
-docker run --rm --env GITHUB_REPOSITORY_SOURCE="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env GITHUB_REPOSITORY_DEST="ElsLommelen/protocols" --env INPUT_TOKEN inbo/protocols
+docker run --rm --env GITHUB_REPOSITORY_SOURCE="ElsLommelen/protocolsource" --env BRANCH_SOURCE="docker-setup" --env GITHUB_REPOSITORY_DEST="ElsLommelen/protocols" --env INPUT_TOKEN --env GITHUB_ACTIONS=true --env GITHUB_EVENT_NAME=push --env GITHUB_REF=refs/heads/main --env PROTOCOL_CODE="sfp-401-nl" inbo/protocols
 
