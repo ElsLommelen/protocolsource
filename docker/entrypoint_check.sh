@@ -5,10 +5,9 @@ git clone --quiet https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY check
 cd check
 git checkout $BRANCH_SOURCE
 #ls -a
-#rm .Rprofile
+rm .Rprofile
 
 echo '\nSession info\n'
-Rscript -e "renv::restore()"
 Rscript -e 'sessioninfo::session_info()'
 
 #echo '\nChecking if branch is up to date with main...\n'
@@ -29,6 +28,12 @@ git config --global user.name "INBO"
 UPDATED=$(Rscript -e 'protocolhelper::update_version_number("'$PROTOCOL_CODE'")')
 echo 'output updated:' $UPDATED
 if [ "$UPDATED" = "[1] TRUE" ]; then
+  # remake the last commit without deletion of .Rprofile
+  MESSAGE=$(git log -1 --pretty=%B)
+  git reset --soft HEAD^
+  git reset HEAD .Rprofile
+  git commit --message="$MESSAGE"
+
   git push -f
   echo '\ncommit with new version pushed\n'
 fi
