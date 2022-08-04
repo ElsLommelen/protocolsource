@@ -1,3 +1,8 @@
+## Version 2022.01
+
+- Protocol code: sfp-401-nl
+- Title: Klassieke vegetatieopname in een proefvlak aan de hand van visuele inschattingen van bedekking van soorten in (semi-)terrestrische vegetatie
+
 <!--One entry for each release describing the generic changes since the previous release.
 e.g. (sort most recent first)
 
