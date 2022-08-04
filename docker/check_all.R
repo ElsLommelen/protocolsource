@@ -1,4 +1,5 @@
 # bundled checks for protocols
+library(protocolhelper)
 check_all <- function(protocol_code) {
   #protocol_code <- Sys.getenv("PROTOCOL_CODE")
   fail <- FALSE
