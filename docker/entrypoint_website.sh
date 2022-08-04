@@ -21,6 +21,18 @@ git rev-parse --abbrev-ref origin/HEAD | sed 's/origin\///' | xargs git checkout
 Rscript --no-save --no-restore -e 'protocolhelper:::set_tags("'$PROTOCOL_CODE'")'
 git push --follow-tags
 
+# look up tag names and tag messages to push to repo protocols later
+# (not possible to run set_tags() when not in protocolsource anymore)
+TAGNAME_GENERAL=$(git tag -l protocols-* --points-at)
+TAGNAME_SPECIFIC=$(git tag -l s*p* --points-at)
+TAGMESSAGE_GENERAL=$(git for-each-ref refs/tags/$TAGNAME_GENERAL --format='%(contents)')
+TAGMESSAGE_SPECIFIC=$(git for-each-ref refs/tags/$TAGNAME_SPECIFIC --format='%(contents)')
+
+echo 'tagname general:' $TAGNAME_GENERAL
+echo 'tag message general:' $TAGMESSAGE_GENERAL
+echo 'tagname specific:' $TAGNAME_SPECIFIC
+echo 'tag message specific:' $TAGMESSAGE_SPECIFIC
+
 echo 'Rendering the Rmarkdown files...\n'
 #rm .Rprofile
 Rscript -e "protocolhelper:::render_release()"
@@ -44,7 +56,11 @@ git config user.name
 git config user.email
 git add --all
 git commit --message="Add new protocol"
-Rscript --no-save --no-restore -e 'protocolhelper:::set_tags("'$PROTOCOL_CODE'")'
 git push -f https://$INPUT_TOKEN@github.com/$GITHUB_REPOSITORY_DEST
+
+git rev-parse --abbrev-ref origin/HEAD | sed 's/origin\///' | xargs git checkout
+git tag -a $TAGNAME_GENERAL -m "$TAGMESSAGE_GENERAL"
+git tag -a $TAGNAME_SPECIFIC -m "$TAGMESSAGE_SPECIFIC"
+git push --follow-tags
 
 echo '\nNew version published...'
