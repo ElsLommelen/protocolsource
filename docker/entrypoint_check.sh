@@ -40,7 +40,7 @@ fi
 
 echo '\nChecking protocols specific tests...\n'
 #git checkout $BRANCH_SOURCE
-#rm .Rprofile
+rm .Rprofile
 
 Rscript "docker/check_all.R"
 #Rscript --no-save --no-restore -e 'check_all("'$PROTOCOL_CODE'")'
