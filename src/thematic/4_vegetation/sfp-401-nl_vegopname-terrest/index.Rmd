@@ -1,14 +1,20 @@
 ---
-title: Klassieke vegetatieopname in een proefvlak aan de hand van visuele inschattingen van bedekking van soorten in (semi-)terrestrische vegetatie
-subtitle: 
+title: Klassieke vegetatieopname in een proefvlak aan de hand van visuele inschattingen
+  van bedekking van soorten in (semi-)terrestrische vegetatie
+subtitle: null
 author:
-  - name: Els De Bie
-    orcid: 0000-0001-7679-743X
-date: "2022-07-18"
-reviewers: [Hans Van Calster,Lieve Vriens,Jan Wouters,Wouter Van Gompel,Els Lommelen]
+- name: Els De Bie
+  orcid: 0000-0001-7679-743X
+date: '2022-07-18'
+reviewers:
+- Hans Van Calster
+- Lieve Vriens
+- Jan Wouters
+- Wouter Van Gompel
+- Els Lommelen
 file_manager: Hans Van Calster
 protocol_code: sfp-401-nl
-version_number: "2021.01"
+version_number: '2022.01'
 language: nl
 theme: vegetation
 params:
@@ -16,28 +22,31 @@ params:
   plot_length_openveg_m: 3
   plot_width_forest_m: 16
   plot_length_forest_m: 16
-  plot_shape: "vierkant"
+  plot_shape: vierkant
   height_herbshrublayer_openveg_m: 0.8
   height_herbshrublayer_forest_m: 2
   height_shrubtreelayer_openveg_m: 6
   height_shrubtreelayer_forest_m: 8
-  species_list: ["vaatplanten", "mossen", "lichenen"]
-  phenology_values: "standaard inbo-fenologiecodes"
-  coverscale_species: "Londo origineel"
-  coverscale_structure: "inbo-structuur-schaal"
+  species_list:
+  - vaatplanten
+  - mossen
+  - lichenen
+  phenology_values: standaard inbo-fenologiecodes
+  coverscale_species: Londo origineel
+  coverscale_structure: inbo-structuur-schaal
 site: bookdown::bookdown_site
-output: 
+output:
   bookdown::gitbook:
     split_by: none
-    split_bib: FALSE
-    template: !expr protocolhelper::protocol_css()
+    split_bib: false
+    template: css/gitbook.html
     css: css/inbo_rapport.css
     config:
-       toc:
-         before: |
-           <li class="toc-logo"><a href="https://www.vlaanderen.be/inbo/home/"><img src="css/img/inbo-nl.jpg"></a></li>
-         after: |
-           <li class="cc"><a href="http://creativecommons.org/licenses/by/4.0/"><img src="css/img/cc-by.png"></a></li>
+      toc:
+        before: |
+          <li class="toc-logo"><a href="https://www.vlaanderen.be/inbo/home/"><img src="css/img/inbo-nl.jpg"></a></li>
+        after: <li class="cc"><a href="http://creativecommons.org/licenses/by/4.0/"><img
+          src="css/img/cc-by.png"></a></li>
 ---
 
 ```{=html}
