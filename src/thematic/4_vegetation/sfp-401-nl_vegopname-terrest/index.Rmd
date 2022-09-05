@@ -14,7 +14,7 @@ reviewers:
 - Els Lommelen
 file_manager: Hans Van Calster
 protocol_code: sfp-401-nl
-version_number: '2022.01'
+version_number: '2021.01'
 language: nl
 theme: vegetation
 params:
