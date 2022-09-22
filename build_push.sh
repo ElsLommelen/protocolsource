@@ -28,3 +28,20 @@ docker run --rm -it --entrypoint=/bin/bash --env GITHUB_REPOSITORY="inbo/checkli
 # run on main
 docker run --rm --env GITHUB_REPOSITORY="inbo/checklist" --env GITHUB_SHA=$(git rev-parse HEAD) --env GITHUB_PAT=$GITHUB_PAT --env INPUT_PATH="." --env ORCID_TOKEN=$ORCID_TOKEN --env CODECOV_TOKEN=$CODECOV_TOKEN --env GITHUB_ACTIONS=true --env GITHUB_EVENT_NAME=push --env GITHUB_REF=refs/heads/main inbobmk/checklist
 
+
+
+#zinvolle env uit github
+GITHUB_BASE_REF: name of target branch of the PR
+GITHUB_EVENT_NAME: name of the event that triggered the workflow run
+GITHUB_HEAD_REF: source branch of the PR
+GITHUB_REF: full ref of branch or tag that triggered the workflow run (best niet gebruiken bij PR)
+GITHUB_REF_NAME: short ref name of branch or tag that triggered the workflow run
+GITHUB_REPOSITORY: owner and repository name, bv. inbo/protocolsource
+
+#aan te passen env
+BRANCH_SOURCE (on PR) -> GITHUB_HEAD_REF
+BRANCH_SOURCE (on push) -> GITHUB_REF_NAME
+PROTOCOL_CODE -> BRANCH_SOURCE (zie hierboven)
+INPUT_TOKEN???
+GITHUB_REPOSITORY_SOURCE -> GITHUB_REPOSITORY
+GITHUB_REPOSITORY_DEST: meegeven als env!
