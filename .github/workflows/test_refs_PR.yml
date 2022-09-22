@@ -1,0 +1,25 @@
+name: Env var on PR
+
+on:
+  pull_request:
+    branches:
+     - main
+
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    name: "test env var in PR"
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: test
+        run: |
+          echo 'GitHub actions:' $GITHUB_ACTIONS
+          echo 'Event name:' $GITHUB_EVENT_NAME
+          echo 'ref:' $GITHUB_REF
+          echo 'ref name:' $GITHUB_REF_NAME
+          echo 'base ref:' $GITHUB_BASE_REF
+          echo 'head ref:' $GITHUB_HEAD_REF
+          echo 'repo:' $GITHUB_REPOSITORY
